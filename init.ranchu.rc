@@ -28,10 +28,11 @@ on zygote-start
     mkdir /data/vendor/wifi/wpa/sockets 0770 wifi wifi
 
 on boot
-    setprop ro.hardware.egl emulation
+    setprop ro.hardware.egl mesa
+    setprop ro.hardware.hwcomposer drm_minigbm
+    setprop ro.hardware.gralloc minigbm
+    setprop drm.gpu.vendor_name virtio_gpu
     setprop debug.hwui.renderer opengl
-    setprop debug.hwui.renderer ${ro.kernel.qemu.uirenderer}
-    setprop ro.opengles.version ${ro.kernel.qemu.opengles.version}
     setprop ro.zygote.disable_gl_preload 1
     setprop dalvik.vm.heapsize 192m
     setprop dalvik.vm.heapsize ${ro.kernel.qemu.dalvik.vm.heapsize}
