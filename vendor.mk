@@ -97,11 +97,6 @@ PRODUCT_PROPERTY_OVERRIDES += ro.opengles.version=196608
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.zram_enabled=1 \
 
 PRODUCT_PACKAGES += \
-    camera.device@1.0-impl \
-    android.hardware.camera.provider@2.4-service \
-    android.hardware.camera.provider@2.4-impl \
-
-PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-impl \
     android.hardware.gatekeeper@1.0-service
 
