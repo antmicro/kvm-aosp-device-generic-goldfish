@@ -19,28 +19,10 @@
 
 # Device modules
 PRODUCT_PACKAGES += \
-    vulkan.ranchu \
-    gralloc.goldfish \
-    gralloc.goldfish.default \
-    gralloc.ranchu \
-    libGLESv1_CM_emulation \
-    lib_renderControl_enc \
-    libEGL_emulation \
-    libGLESv2_enc \
-    libvulkan_enc \
-    libOpenglCodecCommon \
-    libOpenglSystemCommon \
-    libGLESv2_emulation \
-    libGLESv1_enc \
-    libEGL_swiftshader \
-    libGLESv1_CM_swiftshader \
-    libGLESv2_swiftshader \
+    gralloc.minigbm \
+    libGLES_mesa \
+    mesa3d \
     libgoldfish-ril \
-    qemu-props \
-    camera.goldfish \
-    camera.goldfish.jpeg \
-    camera.ranchu \
-    camera.ranchu.jpeg \
     gatekeeper.ranchu \
     gps.goldfish \
     gps.ranchu \
@@ -55,9 +37,9 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.1-service \
     android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.allocator@2.0-impl \
-    android.hardware.graphics.mapper@2.0-impl \
-    hwcomposer.goldfish \
-    hwcomposer.ranchu \
+    android.hardware.graphics.mapper@2.0-impl-2.1 \
+    hwcomposer.drm_minigbm \
+    hwcomposer-stats \
     toybox_vendor \
     android.hardware.audio@2.0-service \
     android.hardware.wifi@1.0-service \
@@ -67,6 +49,8 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     local_time.default \
     SdkSetup
+
+PRODUCT_SOONG_NAMESPACES += external/mesa3d
 
 PRODUCT_PACKAGES += \
     android.hardware.audio@4.0-impl:32 \
@@ -108,6 +92,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += ro.control_privapp_permissions=enforce
 PRODUCT_PROPERTY_OVERRIDES += ro.hardware.power=ranchu
 PRODUCT_PROPERTY_OVERRIDES += ro.crypto.volume.filenames_mode=aes-256-cts
+PRODUCT_PROPERTY_OVERRIDES += ro.opengles.version=196608
 
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.zram_enabled=1 \
 
@@ -134,6 +119,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += android.hardware.thermal@2.0-service.mock
 
+#
 # Needed for /system/priv-app/SdkSetup/SdkSetup.apk to pass CTS android.permission2.cts.PrivappPermissionsTest.
 PRODUCT_COPY_FILES += \
     device/generic/goldfish/data/etc/permissions/privapp-permissions-goldfish.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-goldfish.xml
