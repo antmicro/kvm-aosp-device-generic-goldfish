@@ -119,6 +119,9 @@ PRODUCT_PACKAGES += android.hardware.thermal@2.0-service.mock
 PRODUCT_COPY_FILES += \
     device/generic/goldfish/data/etc/permissions/privapp-permissions-goldfish.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-goldfish.xml
 
+PRODUCT_COPY_FILES += \
+    device/generic/goldfish/QEMU_Virtio_Tablet.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/QEMU_Virtio_Tablet.idc
+
 # Goldfish does not support ION needed for Codec 2.0
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.stagefright.ccodec=0
